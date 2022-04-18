@@ -20,7 +20,7 @@
   "scripts": {
     "start": "ts-node src/app.ts",
     "build": "tsc",
-    "prod": "git pull --force && npm i && npm run build && pm2 start lib/app.js"
+    "prod": "git reset --hard && git pull --force && npm i && npm run build && pm2 start lib/app.js"
   },
   "author": "",
   "license": "ISC"
