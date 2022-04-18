@@ -1,0 +1,18 @@
+[!Clock] : 4963860 - 1d 03h 34m 37,20s - [!Cluster] ID 01.03, clock from [tc:0f0 01.01], skip: 1039, dup: 468 (refreshcount 4)
+[!Framerate] : [!50,01]/50,00 [!]fps, 20,00/20,00 ms
+[!Active Bindings (P+E)] : 40 + 0
+[!Cpu Load] :   [lb:3/100] over [!12]/12 logical threads and [!1]/1 NUMA nodes
+[!Cpu] : Memory [lb:1772/32677] MB Physical, 5272 MB Pagefile, 2 Scenes
+[!Gpu] : Memory [lb:3228/24424] MB, Clock [mb:1506/1506] MHz
+[!GPU]: "[!NVIDIA Quadro P6000]", Cores [!3840], Group Granularity [!32]
+[!GPU]: Indices [!6157735], Instances [!5898], Batches [!514], DrawCalls [!372]
+[!GPU]: Dispatches [!24], Groups [!74628], Indirect [!0]
+[!DX11]: IAVert [!6162335], IAPrim [!2075179], VS [!2494195], GS [!58600], GSPrimOut [!333200], ClipIn [!2349779], ClipOut [!2294133], PS [!30357168], CS [!16744320]
+[!Gfx-State] per frame: Set [!334], Update [!200], Signatures [!0]
+[!Dynamic Geometry] per frame: FastUploads [!6], SlowUploads [!0], Bytes per Frame [!3kb] QuickVertexConvert [!0], SlowVertexConvert [!0]
+[!Particles] per frame: Sprites [!4600], Meshes [!4274]
+[!Shaders] since start: Cached [!177], Compiles [!169], Warmups [!173]
+[!Creation Calls] per 100 frames: Texture [!0], VertexBuffer [!0], IndexBuffer [!0]
+[!Resources]: Textures [!157], Geometries [!112], Shaders [!245], VertexFormats [!17], VertexConverters [!28]
+[!GPU Memory]: Geometry [!234MB], Textures [!1508MB], Color/Depth Targets [!1322MB], Buffers (Particles) [!162MB], CUDA [!0MB]
+

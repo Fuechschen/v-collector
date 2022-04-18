@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./lib",
+    "lib": [
+      "es2017"
+    ],
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "declaration": false,
+    "downlevelIteration": true
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+}
