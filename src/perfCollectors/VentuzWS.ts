@@ -41,9 +41,9 @@ export class VentuzWS extends EventEmitter {
                 this._ws.send(`{"Address":"/Ventuz/Perf","Arguments":[100],"ArgumentTypes":"i","RequestID":${this._rqId++}}`);
             };
             this._ws.onclose = () => {
-                console.warn("websocket closed");
-                this._delayFactor += 0.1;
-                if (this._delayFactor > 2) this._delayFactor = 2;
+                console.warn(this.host, "websocket closed, retry in ", 1000 * this._delayFactor);
+                this._delayFactor += 1;
+                if (this._delayFactor > 30) this._delayFactor = 30;
                 setTimeout(() => {
                     this.connect();
                 }, 1000 * this._delayFactor);
@@ -63,6 +63,9 @@ export class VentuzWS extends EventEmitter {
                         this._ws.send(`{"Address":"/Ventuz/Perf","Arguments":[100],"ArgumentTypes":"i","RequestID":${this._rqId++}}`);
                     }
                 }
+            };
+            this._ws.onerror = err => {
+                console.error("ws err");
             };
         } catch (e) {
             console.error(e);

@@ -2,16 +2,12 @@ import * as fs from "fs";
 import {VentuzDiagnosticsParserV0608} from "./diagnosticsParsers/V0608";
 import {VentuzWS} from "./perfCollectors/VentuzWS";
 import * as aedes from "aedes";
-import {createServer as createHttpServer} from "http";
-import {createServer as createWsServer} from "websocket-stream";
+import {createServer} from "aedes-server-factory";
 
 // @ts-ignore
 const broker = aedes();
-const httpServer = createHttpServer();
+const httpServer  = createServer(broker, { ws: true })
 const port = 8888;
-
-// @ts-ignore
-createWsServer({server: httpServer}, broker.handle);
 
 
 httpServer.listen(port, function () {
@@ -22,6 +18,7 @@ let subscriptionStatus: any = {};
 let wsClients: any = {};
 
 broker.on("subscribe", (subscriptions, client) => {
+    console.log("subscription from client", subscriptions, client.id);
     for (let subscription of subscriptions) {
         if (subscription.topic.match(/vz\/remoting\/(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/perf/i)) {
             if (!subscriptionStatus[subscription.topic]) {
@@ -31,6 +28,7 @@ broker.on("subscribe", (subscriptions, client) => {
                     continue;
                 }
                 let host = matches[0].replace(/\/*/g,"");
+
                 wsClients[subscription.topic] = new VentuzWS(host, VentuzDiagnosticsParserV0608.parse, (message) => {
                     let messageContent: any;
                     if (typeof message === 'string') {
