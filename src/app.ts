@@ -58,6 +58,6 @@ broker.on("subscribe", (subscriptions, client) => {
 });
 
 
-/*let wsConn = new VentuzWS("localhost", VentuzDiagnosticsParserV0608.parse,);
+let wsConn = new VentuzWS("localhost", VentuzDiagnosticsParserV0608.parse,);
 
-wsConn.on("message", console.log);*/
+wsConn.on("message", console.log);
