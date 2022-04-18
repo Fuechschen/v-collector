@@ -10,8 +10,7 @@
     ],
     "moduleResolution": "node",
     "baseUrl": "./",
-    "declaration": false,
-    "downlevelIteration": true
+    "emitDecoratorMetadata": true
   },
   "exclude": [
     "node_modules"
